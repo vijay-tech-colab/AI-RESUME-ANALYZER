@@ -6,6 +6,7 @@ const rateLimit = require('express-rate-limit');
 const errorMiddleware = require('./middleware/errorMiddleware');
 const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
+const userRouter = require('./routers/userRouter');
 app.use(expressFileUpload({
     useTempFiles: true,
     tempFileDir: '/tmp/'
@@ -20,6 +21,6 @@ const limiter = rateLimit({
     message: 'Too many requests from this IP, please try again after 15 minutes'
 });
 app.use(limiter);
-
+app.use('/api/v1/user', userRouter);
 app.use(errorMiddleware);
 module.exports = app;

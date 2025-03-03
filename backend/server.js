@@ -1,4 +1,5 @@
 const app = require('./app');
+const connectDB = require('./db/dbConnection');
 const PORT = process.env.PORT || 3000
 const cloudinary = require('cloudinary').v2;
 
@@ -9,6 +10,7 @@ cloudinary.config({
     api_secret : process.env.CLOUDINARY_API_SECRET_KEY
 });
 
-app.listen(PORT , () => {
+app.listen(PORT , async () => {
+    await connectDB();
     console.log("server running....")
 })
