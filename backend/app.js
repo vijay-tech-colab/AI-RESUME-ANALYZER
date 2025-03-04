@@ -7,6 +7,7 @@ const errorMiddleware = require('./middleware/errorMiddleware');
 const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
 const userRouter = require('./routers/userRouter');
+const aiRouter = require('./routers/aiRouter');
 app.use(expressFileUpload({
     useTempFiles: true,
     tempFileDir: '/tmp/'
@@ -22,5 +23,6 @@ const limiter = rateLimit({
 });
 app.use(limiter);
 app.use('/api/v1/user', userRouter);
+app.use('/api/v1/ai', aiRouter);
 app.use(errorMiddleware);
 module.exports = app;
