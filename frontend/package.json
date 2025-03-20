@@ -10,11 +10,20 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-pdf/renderer": "^4.3.0",
     "@tailwindcss/vite": "^4.0.9",
+    "axios": "^1.8.4",
+    "dom-to-image-more": "^3.5.0",
+    "file-saver": "^2.0.5",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^3.0.1",
+    "lucide-react": "^0.483.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.5.0",
+    "react-pdf": "^9.2.1",
     "react-router-dom": "^7.2.0",
+    "react-to-print": "^3.0.5",
     "react-toastify": "^11.0.5",
     "tailwindcss": "^4.0.9"
   },

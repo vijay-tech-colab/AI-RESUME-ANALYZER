@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 require('dotenv').config({path : "./config/config.env"});
 const expressFileUpload = require('express-fileupload');
 const rateLimit = require('express-rate-limit');
@@ -12,10 +13,16 @@ app.use(expressFileUpload({
     useTempFiles: true,
     tempFileDir: '/tmp/'
 }));
+app.use(cookieParser());
+
 app.use(express.json());
 app.use(express.urlencoded({extended : true}));
 app.use(helmet());
-app.use(cookieParser());
+app.use(cors({
+    origin: "http://localhost:5173",
+    credentials: true, // ✅ Allow cookies
+    methods: ["GET", "POST", "DELETE", "PUT", "PATCH"]
+}));
 const limiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
     limit: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes)

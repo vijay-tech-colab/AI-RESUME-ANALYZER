@@ -51,7 +51,8 @@ ${content}
     "Add more backend-related projects.",
     "Include measurable achievements in experience.",
     "Mention any certifications related to Full Stack Development."
-  ]
+  ],
+  "interview_tips": "To crack interviews, practice common data structures and algorithms questions, particularly those relevant to web development. Be prepared to discuss the architecture and design choices you made in your projects, and clearly articulate the challenges you faced and how you overcame them. Demonstrate a strong understanding of core JavaScript concepts, and be prepared to debug code in real-time. Also, practice explaining your projects in a STAR (Situation, Task, Action, Result) format."
 }
 
 Also, add your thoughts on how the user can easily crack interviews and improve based on their position.
