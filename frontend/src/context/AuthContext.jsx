@@ -19,7 +19,7 @@ export const AuthProvider = ({ children }) => {
 
     if (token) {
       axios
-        .get("http://localhost:5000/api/v1/user/profile/me", {
+        .get("https://ai-resume-analyzer-1-b5ez.onrender.com/api/v1/user/profile/me", {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((res) => {
@@ -40,7 +40,7 @@ export const AuthProvider = ({ children }) => {
   const signup = async (formData) => {
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/v1/user/register",
+        "https://ai-resume-analyzer-1-b5ez.onrender.com/api/v1/user/register",
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );
@@ -57,7 +57,7 @@ export const AuthProvider = ({ children }) => {
   // ✅ Login function
   const login = async (email, password) => {
     try {
-      const res = await axios.post("http://localhost:5000/api/v1/user/login", {
+      const res = await axios.post("https://ai-resume-analyzer-1-b5ez.onrender.com/api/v1/user/login", {
         email,
         password,
       });

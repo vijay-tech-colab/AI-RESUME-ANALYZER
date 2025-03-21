@@ -25,7 +25,7 @@ export default function ResumeAnalyzer() {
     formData.append("file", file);
     console.log(formData)
     try {
-      const response = await fetch("http://localhost:5000/api/v1/ai/upload-resume", {
+      const response = await fetch("https://ai-resume-analyzer-1-b5ez.onrender.com/api/v1/ai/upload-resume", {
         method: "POST",
         body: formData,
       });

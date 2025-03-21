@@ -28,7 +28,7 @@ const ChatBot = () => {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:5000/api/v1/ai/chat",
+        "https://ai-resume-analyzer-1-b5ez.onrender.com/api/v1/ai/chat",
         { message: input },
         {
           headers: { Authorization: `Bearer ${token}` },
