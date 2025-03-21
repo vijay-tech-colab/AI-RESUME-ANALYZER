@@ -68,3 +68,9 @@ exports.postResume = catchAsyncError(async (req, res, next) => {
         }
     }
 });
+
+exports.chatWithAi = catchAsyncError(async (req,res,next) => {
+    const userMessage = req.body.message;
+    const botMessages = await resGeminiAI(userMessage);
+    res.status(200).json({ botMessages });
+})

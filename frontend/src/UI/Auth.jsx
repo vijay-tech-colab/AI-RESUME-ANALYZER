@@ -45,7 +45,6 @@ const Auth = () => {
       } else {
         await login(formData.email, formData.password);
       }
-
       navigate("/");
     } catch (err) {
       toast.error(err.message || "Something went wrong!");
@@ -127,6 +126,18 @@ const Auth = () => {
           >
             {loading ? "Processing..." : isSignUp ? "Sign Up" : "Sign In"}
           </button>
+
+          {/* Toggle between Sign In and Sign Up */}
+          <p className="text-center mt-4">
+            {isSignUp ? "Already have an account?" : "Don't have an account?"}
+            <button
+              type="button"
+              className="text-blue-400 hover:underline ml-2"
+              onClick={() => setIsSignUp(!isSignUp)}
+            >
+              {isSignUp ? "Sign In" : "Sign Up"}
+            </button>
+          </p>
         </form>
       </div>
     </div>

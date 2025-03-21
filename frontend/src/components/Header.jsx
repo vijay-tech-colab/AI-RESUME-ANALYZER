@@ -6,7 +6,7 @@ import { useAuth } from "../context/AuthContext";
 import { BiLogOut } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
-function Header() {
+function Header({setShowPopup}) {
   const { user, logout } = useAuth(); // 🔹 Logout function bhi le liya
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -27,25 +27,33 @@ function Header() {
       <div className="hidden md:flex gap-4 items-center">
         {user ? (
           <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2 border-1 size-10 overflow-hidden rounded-full rounded-lg shadow-md">
-              <img src={user.avatar.url} alt="profile_image" className="size-10 rounded-full"/>
+            <div
+              className="flex items-center gap-2 size-10 overflow-hidden rounded-full rounded-lg shadow-md cursor-pointer"
+              onClick={() => setShowPopup(true)}
+            >
+              <img
+                src={user.avatar.url}
+                alt="profile_image"
+                className="size-10 rounded-full"
+
+              />
               {/* <span>{user.username}</span> 🔹 User Name */}
             </div>
             <Button
               onClick={logout}
               className="px-4 py-2 bg-red-600 text-white hover:bg-red-700 shadow-md"
             >
-              <BiLogOut size={25}/>
+              <BiLogOut size={25} />
             </Button>
           </div>
         ) : (
           <>
-            <Link to="/login" className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-black rounded-lg shadow-md">
+            <Link
+              to="/login"
+              className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-black rounded-lg shadow-md"
+            >
               <FaUser /> Login
             </Link>
-            <Button className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white shadow-md">
-              Sign Up
-            </Button>
           </>
         )}
       </div>
@@ -65,9 +73,12 @@ function Header() {
         <div className="flex flex-col items-start p-6 gap-4 mt-10">
           {user ? (
             <>
-              <div className="flex items-center gap-3 bg-gray-700 p-3 rounded-lg w-full">
-                <FaUser className="text-lg" />
-                <span>{user.username}</span> {/* 🔹 User Name */}
+              <div className="flex items-center gap-3 p-3 rounded-lg w-full flex justify-center">
+                <img
+                  src={user.avatar.url}
+                  alt=""
+                  className="size-20 rounded-full"
+                />
               </div>
               <Button
                 onClick={logout}

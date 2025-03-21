@@ -18,7 +18,7 @@ export default function ResumeAnalyzer() {
   };
 
   const analyzeResume = async () => {
-    if (!file) return alert("Please upload a resume");
+    if (!file) return toast.info("Please upload a resume");
     setLoading(true);
 
     const formData = new FormData();
@@ -57,7 +57,7 @@ export default function ResumeAnalyzer() {
           </Link>
         </CardContent>
       </Card>
-      <SuggestionsList suggestions={resumeData?.parsedJson?.suggestions}/>
+      <SuggestionsList suggestions={resumeData?.parsedJson?.suggestions} jobScore={resumeData?.parsedJson?.job_match_score}/>
       <Interviews tips={resumeData?.parsedJson?.interview_tips}/>
     </div>
   );

@@ -7,15 +7,23 @@ import Auth from "./UI/Auth";
 import ProtectedRoutes from "./components/ProtectedRoutes";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"; // Toast CSS import
-import Resume from "./components/Suggestions";
+import { useState } from "react";
+import { useAuth } from "./context/AuthContext";
+import UserDetailsPopup from "./components/UserDetailsPopup";
+import ChatBot from "./components/ChatBot";
 
 function App() {
+  const [showPopup, setShowPopup] = useState(false);
+  const {user} = useAuth();
   return (
     <div className="min-h-screen bg-black text-white">
-      <Header />
+      <Header setShowPopup={setShowPopup}/>
+      <UserDetailsPopup user={user} isOpen={showPopup} onClose={() => setShowPopup(false)} />
       <Routes>
-        <Route path="/" element={<ResumeAnalyserLanding />} />
         <Route path="/login" element={<Auth />} />
+        <Route path="/" element={<ProtectedRoutes>
+          <ResumeAnalyserLanding />
+        </ProtectedRoutes>} />
         <Route
           path="/upload/resume"
           element={
@@ -24,12 +32,13 @@ function App() {
             </ProtectedRoutes>
           }
         />
-        <Route path="/show/resume"
-        element={
-          <ProtectedRoutes>
-            <Resume/>
-          </ProtectedRoutes>
-        }
+         <Route
+          path="/chat-with-neurobot"
+          element={
+            <ProtectedRoutes>
+              <ChatBot />
+            </ProtectedRoutes>
+          }
         />
       </Routes>
       <Footer />

@@ -12,10 +12,10 @@ export const AuthProvider = ({ children }) => {
   });
 
   const [loading, setLoading] = useState(true);
+  const token = localStorage.getItem("token");
 
   // ✅ Check if user is logged in (on page reload)
   useEffect(() => {
-    const token = localStorage.getItem("token");
 
     if (token) {
       axios
@@ -80,7 +80,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, loading, signup, login, logout }}>
+    <AuthContext.Provider value={{ user, loading, signup, login, logout , token}}>
       {children}
     </AuthContext.Provider>
   );

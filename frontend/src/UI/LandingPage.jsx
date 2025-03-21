@@ -47,12 +47,9 @@ export default function ResumeAnalyserLanding() {
       {/* Call to Action */}
       <section className="text-center py-20 text-white shadow-lg">
         <h2 className="text-3xl font-bold">Ready to Enhance Your Resume?</h2>
-        <p className="text-lg mt-2">
-          Upload your resume now and take the next step in your career.
-        </p>
-        <button className="mt-6 px-6 py-3 text-lg bg-white text-black hover:bg-gray-300 shadow-md rounded-lg">
-          Get Started
-        </button>
+        <Link to="/chat-with-neurobot" className="mt-6 px-6 py-3 text-lg bg-white text-black hover:bg-gray-300 shadow-md rounded-lg inline-block">
+          Chat with 🧠 NeuroBot
+        </Link>
       </section>
     </>
   );

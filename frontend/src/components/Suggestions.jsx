@@ -1,7 +1,7 @@
 import { FaCheckCircle } from "react-icons/fa";
 
 
-const SuggestionsList = ({suggestions}) => {
+const SuggestionsList = ({suggestions ,jobScore}) => {
   if(!suggestions){
     return ""
   }
@@ -15,6 +15,10 @@ const SuggestionsList = ({suggestions}) => {
             <span>{suggestion}</span>
           </li>
         ))}
+        <li className="flex items-start space-x-2">
+            <FaCheckCircle className="text-green-500 mt-1" />
+            <span>{`job_match_score:  ${jobScore}`}</span>
+          </li>
       </ul>
     </div>
   );
